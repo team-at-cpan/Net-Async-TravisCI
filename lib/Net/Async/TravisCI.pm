@@ -153,8 +153,8 @@ sub http_post {
 		%args
     )->then(sub {
         my ($resp) = @_;
-        return { } if $resp->code == 204;
-        return { } if 3 == ($resp->code / 100);
+        return Future->done({ }) if $resp->code == 204;
+        return Future->done({ }) if 3 == ($resp->code / 100);
         try {
 			warn "have " . $resp->as_string("\n");
             return Future->done($json->decode($resp->decoded_content))

@@ -25,7 +25,7 @@ say "Pusher API key is " . $gh->config->get->pusher->{key};
 $gh->jobs(
 )->then(sub {
 	Future->needs_all(
-		map $gh->cancel_job(job => $_), @_
+		map $gh->cancel_job($_), @_
 	)
 })->get;
 
