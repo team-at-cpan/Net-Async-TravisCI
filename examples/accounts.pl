@@ -7,7 +7,7 @@ use IO::Async::Loop;
 use Net::Async::TravisCI;
 use Time::Duration;
 
-use Log::Any::Adapter qw(Stdout);
+use Log::Any::Adapter qw(Stdout), log_level => 'info';
 
 binmode STDOUT, ':encoding(UTF-8)';
 
