@@ -4,7 +4,7 @@ package Net::Async::TravisCI;
 use strict;
 use warnings;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use parent qw(IO::Async::Notifier);
 
@@ -76,7 +76,7 @@ sub endpoints {
         my $path = Path::Tiny::path(__DIR__)->parent(3)->child('share/endpoints.json');
         $path = Path::Tiny::path(
             File::ShareDir::dist_file(
-                'Net-Async-Trello',
+                'Net-Async-TravisCI',
                 'endpoints.json'
             )
         ) unless $path->exists;

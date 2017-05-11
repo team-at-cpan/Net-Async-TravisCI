@@ -2,6 +2,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    Bugs fixed:
+
+    * endpoints.json was not being picked up correctly after installation
 
 0.001     2017-05-11 23:38:05+08:00 Asia/Kuala_Lumpur
 	* Initial release
