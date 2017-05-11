@@ -1,4 +1,6 @@
 requires 'Future';
+requires 'indirect';
+requires 'Dir::Self';
 requires 'URI';
 requires 'URI::Template';
 requires 'JSON::MaybeXS';

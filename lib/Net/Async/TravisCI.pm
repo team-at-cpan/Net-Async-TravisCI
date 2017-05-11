@@ -4,6 +4,8 @@ package Net::Async::TravisCI;
 use strict;
 use warnings;
 
+our $VERSION = '0.001';
+
 use parent qw(IO::Async::Notifier);
 
 =head1 NAME
@@ -16,7 +18,10 @@ Does things to Travis. Terrible, nasty things, most of which are sadly not yet d
 
 =cut
 
+no indirect;
+
 use Future;
+use Dir::Self;
 use URI;
 use URI::Template;
 use JSON::MaybeXS;
