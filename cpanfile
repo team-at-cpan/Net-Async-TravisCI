@@ -7,4 +7,7 @@ requires 'File::ShareDir';
 requires 'Log::Any';
 requires 'Path::Tiny';
 requires 'Net::Async::Pusher';
+requires 'Net::Async::HTTP';
 
+requires 'IO::Async::Notifier';
+requires 'IO::Async::SSL';
