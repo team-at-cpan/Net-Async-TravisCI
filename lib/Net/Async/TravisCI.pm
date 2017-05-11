@@ -86,7 +86,7 @@ sub endpoints {
 
 =head2 endpoint
 
-Processes the given endpoint as a template, using the named paramters
+Processes the given endpoint as a template, using the named parameters
 passed to the method.
 
 =cut
