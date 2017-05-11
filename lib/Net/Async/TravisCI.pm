@@ -196,16 +196,17 @@ sub http_get {
 	$args{headers}{Accept} //= $self->mime_type;
 	$args{$_} //= $auth{$_} for keys %auth;
 
-	$log->tracef("GET %s { %s }", ''. $args{uri}, \%args);
+    my $uri = delete $args{uri};
+	$log->tracef("GET %s { %s }", "$uri", \%args);
     $self->http->GET(
-        (delete $args{uri}),
+        $uri,
 		%args
     )->then(sub {
         my ($resp) = @_;
         return { } if $resp->code == 204;
         return { } if 3 == ($resp->code / 100);
         try {
-			warn "have " . $resp->as_string("\n");
+			$log->tracef('HTTP response for %s was %s', "$uri", $resp->as_string("\n"));
             return Future->done($json->decode($resp->decoded_content))
         } catch {
             $log->errorf("JSON decoding error %s from HTTP response %s", $@, $resp->as_string("\n"));
